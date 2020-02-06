@@ -1,0 +1,29 @@
+@media print {
+    .smallForm {
+        width: 70mm !important;
+        font-size: 9px !important;
+        margin: 0 auto;
+        height: auto;
+    }
+
+    .colorRed {
+        color: red !important;
+        -webkit-print-color-adjust: exact !important;
+    }
+
+    .backgroundGrey {
+        background-color: grey !important;
+        -webkit-print-color-adjust: exact !important;
+    }
+
+}
+
+.colorRed {
+    color: red !important;
+    -webkit-print-color-adjust: exact !important;
+}
+
+.backgroundGrey {
+    background-color: grey !important;
+    -webkit-print-color-adjust: exact !important;
+}

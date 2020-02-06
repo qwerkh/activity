@@ -1,0 +1,445 @@
+<head>
+    <title>CodeRED Tech</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.3.11/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/element-ui/2.12.0/index.js">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css">
+
+    <link rel="stylesheet"
+          href="https://unpkg.com/browse/element-ui@2.12.0/lib/theme-chalk/fonts/element-icons.ttf">
+    <link rel="stylesheet"
+          href="https://unpkg.com/browse/element-ui@2.12.0/lib/theme-chalk/fonts/element-icons.woff">
+
+    <!--<link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/element-ui/1.3.7/theme-default/fonts/element-icons.ttf">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/element-ui/1.3.7/theme-default/fonts/element-icons.woff">-->
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link href="https://fonts.googleapis.com/css?family=Kantumruy|Roboto|Roboto+Condensed" rel="stylesheet">
+    <meta name="theme-color" content="#ffffff">
+    <!--<link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
+          integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
+          crossorigin=""/>-->
+</head>
+
+<template name="MainLayout">
+    {{#AdminLTE skin="{{skin}}"}}
+        <div class="skin-{{skin}}">
+            <div class="wrapper" id="style-3">
+                {{#if currentUser}}
+
+                    <header class="main-header no-print">
+                        <!--style="margin-bottom: 50px !important;"-->
+                        <!-- Logo -->
+                        <a href="{{pathFor 'wb.home'}}" class="logo navbar-fixed-top cursor-pointer">
+                            <!-- mini logo for sidebar mini 50x50 pixels -->
+                            <span class="logo-mini"><b>WB</b></span>
+                            <!-- logo for regular state and mobile devices -->
+                            <!--<span class="logo-lg"><b>Water</b> Billing</span>   -->
+                            <span class="logo-lg">{{{showCompany}}}</span>
+                        </a>
+
+                        <!-- Header Navbar: style can be found in header.less -->
+                        <nav class="navbar navbar-static-top navbar-fixed-top navbar-default">
+                            <!-- Sidebar toggle button-->
+                            <!--<a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">-->
+                            <!--<span class="sr-only">Toggle navigation</span>-->
+                            <!--</a>-->
+                            <ul class="nav navbar-nav">
+                                <a href="#" class="sidebar-toggle media-small-none" data-toggle="push-menu"
+                                   role="button">
+                                    <span class="sr-only">Toggle navigation</span>
+                                </a>
+                            </ul>
+                            <div class="newAffix no-print">
+                                <ol class="breadcrumbs ">
+                                    {{#each Breadcrumb}}
+                                        <li class="{{cssClasses}}"><a href="{{url}}"
+                                                                      style="font-size: 16px; font-weight: 500">{{title}}</a>
+                                        </li>
+                                    {{/each}}
+                                </ol>
+                            </div>
+                            <div class="pull-right">
+
+
+                                <a href="{{pathFor 'wb.areaNoValidate'}}" style="padding: 15px;float:left;"><i
+                                        class="fa fa-code-fork fa-1x"> </i> {{area}}</a>
+
+                                <ul class="nav navbar-nav">
+                                    <li class="dropdown mega-dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i
+                                                class="fa fa-th-large fa-1x" aria-hidden="true"></i>
+                                            <i class="padding-top-user">
+                                                {{#if isShowReportRole}}
+                                                    Report
+                                                {{/if}}
+
+                                            </i>
+                                        </a>
+                                        <ul class="dropdown-menu mega-dropdown-menu row">
+                                            <!--style="width:inherit !important"-->
+                                            {{#if isAvailable}}
+
+                                                {{#if isShowReportRole}}
+                                                    <li class="col-sm-4">
+                                                        <ul>
+                                                            {{#if isTeacherReportRole}}
+
+                                                                <a href="#" class="title-head">
+                                                                    <i class="fa fa-user"></i> <span>{{_
+                                                                        "sch.sidebarMenu.report"}}</span>
+                                                                </a>
+                                                                <li style="cursor: pointer;"><a
+                                                                        href="{{pathFor
+                                                                                'sch.schTeacherActivityReport'}}"
+                                                                        class="title-body">
+                                                                    <i class="fa fa-dollar"></i> {{_
+                                                                        "sch.sidebarMenu.teacherActivity"}}
+                                                                </a>
+                                                                </li>
+                                                                <li style="cursor: pointer;"><a
+                                                                        href="{{pathFor
+                                                                                'sch.schDocumentReport'}}"
+                                                                        class="title-body">
+                                                                    <i class="fa fa-dollar"></i> {{_
+                                                                        "sch.sidebarMenu.document"}}
+                                                                </a>
+                                                                </li>
+
+                                                            {{/if}}
+
+                                                        </ul>
+                                                    </li>
+                                                {{/if}}
+
+                                            {{/if}}
+
+
+                                        </ul>
+                                    </li>
+                                </ul>
+
+
+                                <ul class="nav navbar-nav">
+                                    <a href="#" class="sidebar-toggle media-none-display" data-toggle="push-menu"
+                                       role="button">
+                                        <span class="sr-only">Toggle navigation</span>
+                                    </a>
+                                </ul>
+                            </div>
+
+
+                        </nav>
+                    </header>
+                {{/if}}
+                {{#if currentUser}}
+                    {{#if currentUser.profile.approved}}
+                        {{>sidebar}}
+                        <div class="content-wrapper" id="style-1">
+                            <div class="container main-yield">
+                                <!--<div style="margin-top: 60px" class="no-print"></div>-->
+                                {{> Template.dynamic template=content}}
+                            </div>
+                        </div>
+                        <footer class="main-footer no-print " style="background: #ECF0F5">
+                            <div class="pull-right">
+                                <b>Version</b> 1.0
+                            </div>
+                            <strong>&nbsp;&nbsp; Copyright © 2017 <a href="https://coderedtech.com">CodeRED
+                                Tech</a></strong>
+                            {{>i18n_ui}}
+                        </footer>
+                    {{else}}
+                        <div class="content-wrapper" style="min-height: 916px;" id="app">
+                            {{> wb_home}}
+                        </div>
+                    {{/if}}
+
+                {{else}}
+
+                    <body class="custom-login-background">
+
+                    <div style="margin: 5%;margin-left: 15%;margin-right: 15%;  min-height: 0px;padding-right: 0px;padding-left: 0px;padding-bottom: 0px;padding-top:0px; background-color: rgba(251,251,255,0.5);box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .14); border-radius: 3px ">
+
+                        <div class="col-sm-12 col-md-12 col-lg-12">
+
+                            <div style="height: auto; width: 100%;color: white;">
+                                <i style="margin: 2%">
+                                    <img
+                                            style="display: block;margin: 0 auto;width: 180px;height: 180px;"
+                                            src="/mih.png"
+                                            alt="">
+
+                                </i>
+                                <h5 style="text-align: center;font-family: 'Khmer OS Muol';font-size: 15px;">
+                                    <p>{{loginSetup.parentName}}</p>
+                                    <p>{{loginSetup.name}}</p>
+                                </h5>
+                                <div style="margin-top: -70px;margin-bottom: -70px">
+                                    {{>wb_login}}
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    </body>
+                {{/if}}
+                {{> meteorStatus position="bottom"}}
+                <!--</div>
+                </body>-->
+            </div>
+        </div>
+
+    {{/AdminLTE}}
+</template>
+
+<template name="navbar">
+</template>
+
+<template name="noHeaderNoSideBarLayout">
+    {{> Template.dynamic template=content}}
+</template>
+
+<template name="sidebar">
+    <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar" data-color="black" data-image style="height: auto;">
+
+
+            <body class="sidebar-background" id="style-3" style="background-image: url('/blur-bg.gif');">
+            <div class="user-panel simple-text"
+                 style="margin-bottom: 1px;text-align: center; border-bottom: 1px solid hsla(0,0%,100%,.2);margin-top:13px">
+                <a href="{{pathFor 'wb.home'}}" class="cursor-pointer" style="color: white">
+                    <span style="font-size:23px">Activity</span>
+                </a>
+            </div>
+            <ul class="sidebar-menu tree animated-padding animated fadeInLeft" data-widget="tree">
+                <div class="user-panel simple-text"
+                     style="margin-bottom: 1px;text-align: center; border-bottom: 1px solid hsla(0,0%,100%,.2);margin-top:13px">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <li class="fa fa-user-circle" style="font-size: 75px; color: white;"></li>
+                    <li style="font-size:23px; color: white;">{{currentUser.username}} <i class="fa fa-caret-down"></i>
+                    </li>
+                    </a>
+                    {{#if currentUser}}
+                        <ul class="dropdown-menu" style="position: inherit !important;float: none !important;"
+                            role="menu">
+                            {{#if isAdminSettingAndSuper}}
+                                <li style="cursor: pointer;"><a class="cursor-pointer" style="display: flex;"
+                                                                href="{{pathFor 'wb.userSetting'}}"><i
+                                        class="fa fa-circle-o-notch" aria-hidden="true"></i>តារាងអ្នកប្រើប្រាស់</a>
+                                </li>
+                            {{/if}}
+                            {{#if isSuper}}
+                                <li style="cursor: pointer;"><a class="cursor-pointer" style="display: flex;"
+                                                                href="{{pathFor 'manage.module'}}"><i
+                                        class="fa fa-circle-o-notch" aria-hidden="true"></i>គ្រប់គ្រងប្រព័ន្ធ</a>
+                                </li>
+                            {{/if}}
+
+
+                            <li style="cursor: pointer;"><a class="cursor-pointer" style="display: flex;"
+                                                            href="{{pathFor 'wb.changePassword'}}"><i
+                                    class="fa fa-unlock-alt"></i>&nbsp;ប្តូរពាក្យសម្ងាត់</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li class="cursor-pointer"></li>
+                            <li style="cursor: pointer;"><a class="cursor-pointer logout" style="display: flex;"><i
+                                    class="fa fa-sign-out"></i>&nbsp;ចាកចេញ</a>
+                            </li>
+                        </ul>
+                    {{/if}}
+                    </li>
+                </div>
+            </ul>
+
+            <ul class="sidebar-menu tree animated-padding animated fadeInLeft" data-widget="tree">
+
+                {{#if manageModule.teacher}}
+                    {{#if isTeacherRole}}
+
+                        <a href="#" class="title-head">
+                            <i style="color: white !important;" class="fa fa-users"></i> <span
+                                style="color: white;">{{_
+                                "sch.sidebarMenu.menu"}}</span>
+                            <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+                        </a>
+                        <li style="cursor: pointer;"><a href="{{pathFor 'sch.teacher'}}" class="title-body"><i
+                                class="fa fa-user"
+                                aria-hidden="true"></i> {{_
+                                "sch.sidebarMenu.teacher"}}</a>
+                        </li>
+                        <li style="cursor: pointer;"><a href="{{pathFor 'sch.teacherActivity'}}" class="title-body"><i
+                                class="fa fa-plane"
+                                aria-hidden="true"></i> {{_
+                                "sch.sidebarMenu.teacherActivity"}}</a>
+                        </li>
+
+                        <li style="cursor: pointer;"><a href="{{pathFor 'sch.document'}}" class="title-body"><i
+                                class="fa fa-plane"
+                                aria-hidden="true"></i> {{_
+                                "sch.sidebarMenu.document"}}</a>
+                        </li>
+                        <li style="cursor: pointer;"><a href="{{pathFor 'sch.fileType'}}" class="title-body"><i
+                                class="fa fa-support"></i> {{_
+                                "sch.sidebarMenu.fileType"}}</a>
+                        </li>
+
+                    {{/if}}
+                {{/if}}
+                {{#if manageModule.teacher}}
+                    {{#if isTeacherRole}}
+
+                        <li style="cursor: pointer;"><a href="{{pathFor 'sch.position'}}" class="title-body"><i
+                                class="fa fa-podcast"></i> {{_
+                                "sch.sidebarMenu.position"}}</a>
+                        </li>
+                        <li style="cursor: pointer;"><a href="{{pathFor 'sch.activity'}}" class="title-body"><i
+                                class="fa fa-support"></i> {{_
+                                "sch.sidebarMenu.activity"}}</a>
+                        </li>
+                        <li style="cursor: pointer;"><a href="{{pathFor 'sch.organization'}}" class="title-body"><i
+                                class="fa fa-support"></i> {{_
+                                "sch.sidebarMenu.organization"}}</a>
+                        </li>
+
+                    {{/if}}
+                {{/if}}
+                {{#if manageModule.super}}
+                    <li style="cursor: pointer;"><a href="{{pathFor 'wb.waterBillingSetup'}}">
+                        <i class="fa fa-cog"></i> Setup</a></li>
+                {{/if}}
+            </ul>
+            </body>
+        </section>
+        <!-- /.sidebar -->
+    </aside>
+</template>
+
+
+<template name="MainLayoutNoValidate">
+    {{#AdminLTE skin="{{skin}}"}}
+        <div class="skin-{{skin}}">
+            <div class="wrapper" id="style-3">
+
+                <header class="main-header no-print">
+                    <a href="{{pathFor 'wb.home'}}" class="logo navbar-fixed-top cursor-pointer">
+                        <span class="logo-mini"><b>AC</b></span>
+                        <span class="logo-lg">Activity</span>
+                    </a>
+
+                    <nav class="navbar navbar-static-top navbar-fixed-top navbar-default">
+                        <ul class="nav navbar-nav">
+                            <a href="#" class="sidebar-toggle media-small-none" data-toggle="push-menu"
+                               role="button">
+                                <span class="sr-only">Toggle navigation</span>
+                            </a>
+                        </ul>
+                        <div class="newAffix no-print">
+                            <ol class="breadcrumbs ">
+                                {{#each Breadcrumb}}
+                                    <li class="{{cssClasses}}"><a href="{{url}}"
+                                                                  style="font-size: 16px; font-weight: 500">{{title}}</a>
+                                    </li>
+                                {{/each}}
+                            </ol>
+                        </div>
+                        <div class="pull-right">
+                            <a href="{{pathFor 'wb.areaNoValidate'}}" style="padding: 15px;float:left;"><i
+                                    class="fa fa-code-fork fa-1x"> </i> {{area}}</a>
+
+                            <ul class="nav navbar-nav">
+                                <li class="dropdown mega-dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i
+                                            class="fa fa-th-large fa-1x" aria-hidden="true"></i>
+                                        <i class="padding-top-user">
+
+                                            {{#if isShowReportRole}}
+                                                Report
+                                            {{/if}}
+
+                                        </i>
+                                    </a>
+                                    <ul class="dropdown-menu mega-dropdown-menu row">
+                                        <!--style="width:inherit !important"-->
+                                        {{#if isAvailable}}
+                                            {{#if isShowReportRole}}
+                                                <li class="col-sm-4">
+                                                    <ul>
+
+                                                        {{#if manageModule.teacher}}
+                                                            {{#if isTeacherReportRole}}
+                                                                <a href="#" class="title-head">
+                                                                    <i class="fa fa-user"></i> <span>{{_
+                                                                        "sch.sidebarMenu.report"}}</span>
+                                                                </a>
+                                                                <li style="cursor: pointer;"><a
+                                                                        href="{{pathFor
+                                                                                'sch.schTeacherActivityReport'}}"
+                                                                        class="title-body">
+                                                                    <i class="fa fa-dollar"></i> {{_
+                                                                        "sch.sidebarMenu.teacherActivity"}}
+                                                                </a>
+                                                                </li>
+                                                                <li style="cursor: pointer;"><a
+                                                                        href="{{pathFor
+                                                                                'sch.schDocumentReport'}}"
+                                                                        class="title-body">
+                                                                    <i class="fa fa-dollar"></i> {{_
+                                                                        "sch.sidebarMenu.document"}}
+                                                                </a>
+                                                                </li>
+
+                                                            {{/if}}
+                                                        {{/if}}
+
+                                                    </ul>
+                                                </li>
+                                            {{/if}}
+
+                                        {{/if}}
+
+
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul class="nav navbar-nav">
+                                <a href="#" class="sidebar-toggle media-none-display" data-toggle="push-menu"
+                                   role="button">
+                                    <span class="sr-only">Toggle navigation</span>
+                                </a>
+                            </ul>
+                        </div>
+
+
+                    </nav>
+                </header>
+                {{>sidebar}}
+                <div class="content-wrapper" id="style-1">
+                    <div class="container main-yield">
+                        {{> Template.dynamic template=content}}
+                    </div>
+                </div>
+
+                <footer class="main-footer no-print " style="background: #ECF0F5">
+                    <div class="pull-right">
+                        <b>Version</b> 2.0
+                    </div>
+                    <strong>&nbsp;&nbsp; Copyright © 2017 <a href="https://coderedtech.com">CodeRED Tech</a></strong>
+                    {{>i18n_ui}}
+                </footer>
+
+                {{> meteorStatus position="bottom"}}
+            </div>
+        </div>
+
+    {{/AdminLTE}}
+</template>

@@ -1,0 +1,84 @@
+@media print {
+    .blueOnPrint {
+        color: darkblue !important;
+    }
+
+    .back_color {
+        color: lightgray !important;
+    }
+
+    .balckOnPrint {
+        color: black !important;
+    }
+
+    .back_color {
+        background-color: lightgray !important;
+    }
+
+    .transcriptHeading {
+        -webkit-print-color-adjust: exact !important;
+    }
+
+}
+
+.transcriptHeading {
+    -webkit-print-color-adjust: exact !important;
+}
+
+.blueOnPrint {
+    color: darkblue !important;
+}
+
+.balckOnPrint {
+    color: black !important;
+}
+
+.report-center {
+    text-align: center !important;
+    vertical-align: inherit !important;
+}
+
+.back_color {
+    background-color: lightgray !important;
+}
+
+.transcript > tr > td {
+    padding: 1px !important;
+}
+
+.tran-first {
+    text-align: center !important;
+    vertical-align: inherit !important;
+
+}
+
+.tran-second {
+    text-align: center !important;
+    vertical-align: inherit !important;
+
+}
+
+.tran-third {
+    text-align: center !important;
+    vertical-align: inherit !important;
+
+}
+
+.tran-forth {
+    vertical-align: inherit !important;
+
+}
+
+@media print {
+    .paymentNo {
+        background-color: darkblue !important;
+        color: white !important;
+        width: 100px !important;
+    }
+
+    .printPayment {
+        margin-right: 8px !important;
+        margin-left: 8px !important;
+    }
+
+}
