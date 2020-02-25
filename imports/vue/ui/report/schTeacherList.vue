@@ -1,6 +1,6 @@
 <!--suppress ALL -->
 <template>
-    <div class="schTeacherActivity-report">
+    <div class="schTeacherList-report">
         <a4>
             <div slot="header" class="no-print">
                 <el-row type="flex" class="row-bg" justify="center">
@@ -42,20 +42,7 @@
                                         </el-form-item>
 
                                     </el-col>
-                                    <!--<el-col>
-                                        <el-form-item :label="langConfig['fileType']">
-                                            <el-select filterable v-model="params.fileTypeId" clearable
-                                                       :placeholder="langConfig['all']"
-                                                       style="width: 95%">
-                                                <el-option
-                                                        v-for="item in fileTypeOptions"
-                                                        :label="item.label"
-                                                        :value="item.value" :key="item._id">
-                                                </el-option>
-                                            </el-select>
-                                        </el-form-item>
 
-                                    </el-col>-->
                                     <el-col>
                                         <el-form-item :label="langConfig['organization']">
                                             <el-select filterable v-model="params.organizationId" clearable
@@ -67,42 +54,6 @@
                                                         :value="item.value" :key="item._id">
                                                 </el-option>
                                             </el-select>
-                                        </el-form-item>
-
-                                    </el-col>
-                                    <el-col>
-                                        <el-form-item :label="langConfig['dateRange']">
-                                            <el-date-picker
-                                                    align="right" style="width: 95%"
-                                                    v-model="params.date"
-                                                    type="daterange"
-                                                    :picker-options="pickerDateOptions"
-                                                    :placeholder="langConfig['pickDateRange']"
-                                            >
-                                            </el-date-picker>
-                                        </el-form-item>
-                                    </el-col>
-
-                                </el-row>
-                                <el-row type="flex" class="row-bg" justify="center">
-
-                                    <el-col>
-                                        <el-form-item :label="langConfig['activity']">
-                                            <el-select filterable v-model="params.activityId" clearable
-                                                       :placeholder="langConfig['all']"
-                                                       style="width: 95%">
-                                                <el-option
-                                                        v-for="item in activityOptions"
-                                                        :label="item.label"
-                                                        :value="item.value" :key="item._id">
-                                                </el-option>
-                                            </el-select>
-                                        </el-form-item>
-
-                                    </el-col>
-                                    <el-col>
-                                        <el-form-item :label="langConfig['topic']">
-                                            <el-input v-model="params.topic"></el-input>
                                         </el-form-item>
 
                                     </el-col>
@@ -120,12 +71,7 @@
                                         </el-form-item>
 
                                     </el-col>
-                                    <el-col>
-                                        <el-form-item :label="langConfig['place']">
-                                            <el-input v-model="params.place"></el-input>
-                                        </el-form-item>
 
-                                    </el-col>
                                 </el-row>
                             </el-form>
 
@@ -180,7 +126,6 @@
                               <div style="widows: 50% !important; float:right">
                                   </div>
                               <div style="width: 50% !important;">
-                                  {{langConfig['date']}}: {{dateHeader}}
                               </div>
 
                           </div>
@@ -190,18 +135,17 @@
                     <tr>
                         <th>{{langConfig['no']}}</th>
                         <th>{{langConfig['teacher']}}</th>
-                        <th>{{langConfig['startDate']}}</th>
-                        <th>{{langConfig['endDate']}}</th>
-                        <th>{{langConfig['activity']}}</th>
-                        <th>{{langConfig['topic']}}</th>
-                        <th>{{langConfig['place']}}</th>
-                        <th>{{langConfig['time']}}</th>
-                        <th>{{langConfig['totalDay']}}</th>
-                        <th>{{langConfig['link']}}</th>
+                        <th>{{langConfig['gender']}}</th>
+                        <th>{{langConfig['dob']}}</th>
+                        <th>{{langConfig['provinceCurrent']}}</th>
+                        <th>{{langConfig['position']}}</th>
+                        <th>{{langConfig['organization']}}</th>
+                        <th>{{langConfig['phoneNumber']}}</th>
+
 
                     </tr>
                 </thead>
-                <tbody style="margin-bottom: 5px;" v-html="teacherActivityHtml">
+                <tbody style="margin-bottom: 5px;" v-html="teacherListHtml">
 
                 </tbody>
 
@@ -257,7 +201,7 @@
                 },
                 rolesArea: '',
                 activeName: '1',
-                teacherActivityHtml: "",
+                teacherListHtml: "",
                 labelPosition: 'top',
                 branchOptions: [],
                 areaOptions: [],
@@ -451,9 +395,9 @@
                     this.loading = false;
                     return false;
                 }*/
-                Meteor.call('schTeacherActivityReport', this.params, this.langConfig, (err, result) => {
+                Meteor.call('schTeacherListReport', this.params, this.langConfig, (err, result) => {
                     if (result) {
-                        this.teacherActivityHtml = result.teacherActivityHTML;
+                        this.teacherListHtml = result.teacherListHTML;
                         this.dateHeader = result.dateHeader;
                     }
                     this.loading = false;
@@ -470,7 +414,7 @@
                 // return this.posSaleData.length > 0;
             },
             langConfig() {
-                let data = compoLangReport.filter(config => config.lang === this.langSessionReport)[0]['teacherActivity'];
+                let data = compoLangReport.filter(config => config.lang === this.langSessionReport)[0]['teacherList'];
                 return data;
             }
         },

@@ -148,8 +148,8 @@
                         <th>{{langConfig['issueDate']}}</th>
                         <th>{{langConfig['receivedDate']}}</th>
                         <th>{{langConfig['documentType']}}</th>
-                        <th>{{langConfig['link']}}</th>
                         <th>{{langConfig['desc']}}</th>
+                        <th>{{langConfig['link']}}</th>
                     </tr>
                 </thead>
                 <tbody style="margin-bottom: 5px;" v-html="documentHtml">
@@ -375,9 +375,8 @@
                     }
                 })
             },
-            fetchFileType() {
-                let selector = {};
-                Meteor.call("queryFileTypeOption", selector, (err, result) => {
+            fetchFileType(q) {
+                Meteor.call("queryFileTypeOption", q, (err, result) => {
                     if (result) {
                         this.fileTypeOptions = result;
                     }

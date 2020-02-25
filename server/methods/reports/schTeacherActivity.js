@@ -47,9 +47,8 @@ Meteor.methods({
             let reg = new RegExp(params.topic);
             parameter.topic = {$regex: reg, $options: 'mi'};
         }
-        if (params.fileName !== "") {
-            let reg = new RegExp(params.fileName);
-            parameter.fileName = {$regex: reg, $options: 'mi'};
+        if (params.degree !== "") {
+            nextParam["teacherDoc.personalStudy"] = {$elemMatch: {grade: params.degree}};
         }
 
         if (params.place !== "") {
@@ -175,6 +174,8 @@ Meteor.methods({
                             <td style="text-align: center !important;width: 15%">${obj.activityDoc && obj.activityDoc.name || ""}</td>
                             <td style="text-align: center !important;">${obj.topic || ""}</td>
                             <td style="text-align: center !important;">${obj.place || ""}</td>
+                            <td style="text-align: center !important;">${obj.time || ""}</td>
+                            <td style="text-align: center !important;">${(moment(obj.endDate).diff(obj.startDate, "days") || 0) + 1}</td>
                              <td style="text-align: center !important;width: 10%">
                             `;
 
@@ -187,7 +188,8 @@ Meteor.methods({
                         })
                     }
 
-                    teacherActivityHTML += `</td><td style="text-align: center !important;">${(moment(obj.endDate).diff(obj.startDate, "days") || 0) + 1}</td>
+                    teacherActivityHTML += `</td>
+
 
                         </tr>
                     `;

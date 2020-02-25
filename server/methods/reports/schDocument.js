@@ -91,6 +91,7 @@ Meteor.methods({
                             <td style="text-align: center !important;">${obj.dateName}</td>
                             <td style="text-align: center !important;width: 160px">${obj.receivedDateName || ""}</td>
                             <td style="text-align: center !important;width: 10%">${obj.documentTypeDoc.name}</td>
+                             <td style="text-align: center !important;">${obj.desc || ""}</td>
                             <td style="text-align: center !important;width: 10%">
                             `;
 
@@ -107,7 +108,7 @@ Meteor.methods({
                     documentHTML += `
                           
                             </td>
-                            <td style="text-align: center !important;">${obj.desc || ""}</td>
+                           
 
 
                         </tr>

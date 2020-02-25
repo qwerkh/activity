@@ -272,7 +272,7 @@
                                             </el-form-item>
                                         </el-col>
                                         <el-col :span="14">
-                                            <el-form-item :label="langConfig['group']"  prop="groupCurrent">
+                                            <el-form-item :label="langConfig['group']" prop="groupCurrent">
                                                 <el-input v-model="schTeacherForm.groupCurrent"></el-input>
                                             </el-form-item>
                                         </el-col>
@@ -360,13 +360,15 @@
                     <el-col :span="1">
                         <div>&nbsp;</div>
                     </el-col>
-                    <el-col :span="14">
+                    <el-col :span="13">
                         <p><b><i class="material-icons">
                             group
                         </i> {{langConfig['family']}}</b></p>
                         <hr>
                         <el-row>
-                            <p>{{langConfig['parent']}}</p>
+                            <p><i class="material-icons">
+                                supervisor_account
+                            </i>{{langConfig['parent']}}</p>
                             <el-col :span="12">
                                 <el-form-item :label="langConfig['faName']" prop="faName">
                                     <el-input v-model="schTeacherForm.faName"></el-input>
@@ -427,7 +429,9 @@
 
                         </el-row>
                         <el-row>
-                            <p>{{langConfig['cousin']}}</p>
+                            <p><i class="material-icons">
+                                directions_run
+                            </i>{{langConfig['cousin']}}</p>
                             <el-table
                                     :data="cousinData"
                                     stripe
@@ -524,9 +528,22 @@
                                 <el-table-column
                                         :label="langConfig['grade']">
                                     <template slot-scope="scope">
-                                        <el-input size="small" v-model="scope.row.grade"
+                                        <el-select style="display: block !important;"
+                                                   filterable
+                                                   v-model="scope.row.grade"
+                                                   @change="handleEditStudy(scope.$index, scope.row)"
+                                                   :placeholder="langConfig['chooseItem']">
+                                            <el-option
+                                                    v-for="item in gradeList"
+                                                    :key="item.value"
+                                                    :label="item.label"
+                                                    :value="item.value"
+                                                    :disabled="item.disabled">
+                                            </el-option>
+                                        </el-select>
+                                        <!--<el-input size="small" v-model="scope.row.grade"
                                                   :placeholder="langConfig['grade']"
-                                                  @change="handleEditStudy(scope.$index, scope.row)"></el-input>
+                                                  @change="handleEditStudy(scope.$index, scope.row)"></el-input>-->
                                     </template>
                                 </el-table-column>
                                 <el-table-column
@@ -986,13 +1003,16 @@
                     <el-col :span="1">
                         <div>&nbsp;</div>
                     </el-col>
-                    <el-col :span="14">
+                    <el-col :span="13">
                         <p><b><i class="material-icons">
                             group
                         </i> {{langConfig['family']}}</b></p>
                         <hr>
                         <el-row>
-                            <p>{{langConfig['parent']}}</p>
+                            <p>
+                                <i class="material-icons">
+                                    supervisor_account
+                                </i>{{langConfig['parent']}}</p>
                             <el-col :span="12">
                                 <el-form-item :label="langConfig['faName']" prop="faName">
                                     <el-input v-model="schTeacherForm.faName"></el-input>
@@ -1053,7 +1073,9 @@
 
                         </el-row>
                         <el-row>
-                            <p>{{langConfig['cousin']}}</p>
+                            <p><i class="material-icons">
+                                directions_run
+                            </i>{{langConfig['cousin']}}</p>
                             <el-table
                                     :data="cousinData"
                                     stripe
@@ -1150,9 +1172,23 @@
                                 <el-table-column
                                         :label="langConfig['grade']">
                                     <template slot-scope="scope">
-                                        <el-input size="small" v-model="scope.row.grade"
+                                        <el-select style="display: block !important;"
+                                                   filterable
+                                                   v-model="scope.row.grade"
+                                                   @change="handleEditStudy(scope.$index, scope.row)"
+                                                   :placeholder="langConfig['chooseItem']">
+                                            <el-option
+                                                    v-for="item in gradeList"
+                                                    :key="item.value"
+                                                    :label="item.label"
+                                                    :value="item.value"
+                                                    :disabled="item.disabled">
+                                            </el-option>
+                                        </el-select>
+
+                                        <!--<el-input size="small" v-model="scope.row.grade"
                                                   :placeholder="langConfig['grade']"
-                                                  @change="handleEditStudy(scope.$index, scope.row)"></el-input>
+                                                  @change="handleEditStudy(scope.$index, scope.row)"></el-input>-->
                                     </template>
                                 </el-table-column>
                                 <el-table-column
@@ -1371,7 +1407,7 @@
     import compoLang from '../../../both/i18n/lang/elem-label-sch'
     import {Sch_TeacherReact} from "../../collection/schTeacher";
     import {Manage_Module} from "../../collection/manageModule";
-
+    import {ConstantList} from "../../api/constant"
     export default {
         meteor: {
             langSession() {
@@ -1438,7 +1474,7 @@
                 subjectList: [],
                 positionList: [],
                 organizationList: [],
-
+                gradeList: ConstantList.gradeList,
                 genderList: [
                     {value: "Male", label: "Male"},
                     {value: "Female", label: "Female"}

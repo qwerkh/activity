@@ -1,5 +1,3 @@
-
-
 import {SpaceChar} from "../../both/config.js/space"
 import {Sch_Level} from "../../imports/collection/schLevel";
 import {Sch_Program} from "../../imports/collection/schProgram";
@@ -405,8 +403,18 @@ Meteor.methods({
         });
         return list;
     },
-    queryFileTypeOption(selector) {
+    queryFileTypeOption(q) {
         let list = [];
+
+        let selector = {};
+        if (q !== "" && q !== null) {
+            q = q.replace(/[/\\]/g, '');
+            let reg = new RegExp(q, 'mi');
+            selector.$or = [
+                {name: {$regex: reg}},
+                {_id: q}
+            ];
+        }
 
         Sch_FileType.find(selector).fetch().forEach(function (obj) {
             list.push({label: obj.name, value: obj._id});

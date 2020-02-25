@@ -111,6 +111,7 @@ Meteor.methods({
                         desc: {$last: "$desc"},
                         place: {$last: "$place"},
                         topic: {$last: "$topic"},
+                        time: {$last: "$time"},
                         order: {$last: "$order"},
                     }
                 },

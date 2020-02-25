@@ -259,6 +259,17 @@ schReportTeacher.route('/schTeacherActivityReport', {
     }
 
 });
+import '../../imports/ui/report/schTeacherList/schTeacherList';
+
+schReportTeacher.route('/schTeacherListReport', {
+    name: 'sch.schTeacherListReport',
+    title: "Staff List Report",
+    parent: 'wb.home',
+    action: function (query, params) {
+        _Main('sch_teacherListReport');
+    }
+
+});
 import '../../imports/ui/report/schDocument/schDocument';
 
 schReportTeacher.route('/schDocumentReport', {

@@ -25,6 +25,10 @@ Sch_TeacherActivity.schema = new SimpleSchema({
     endDate: {
         type: Date
     },
+    time: {
+        type: String,
+        optional: true
+    },
     startDateName: {
         type: String,
         optional: true

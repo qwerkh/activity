@@ -98,7 +98,7 @@
       "add": "Add Staff",
       "update": "Update Staff",
       "teacher": "Staff",
-      "name": "Name",
+      "name": "Khmer Name",
       "latinName": "Latin Name",
       "gender": "Gender",
       "nationality": "Nationality",
@@ -131,7 +131,7 @@
       "graduatedYear": "Graduated Year",
       "personalInfo": "Personal Information",
       "duration": "Duration",
-      "grade": "Grade",
+      "grade": "Degree",
       "pob": "Place Of Birth",
       "parent": "Parent",
       "program": "Program",
@@ -148,7 +148,7 @@
       "subject": "Subject",
       "credit": "Credit",
       "score": "Score",
-      "grades": "Grade",
+      "grades": "Degree",
       "position": "Position",
       "idNumber": "Staff Id",
       "idCode": "National Id",
@@ -161,7 +161,7 @@
       "levelSalary": "Level Salary",
       "kambrak": "Type Salary",
       "order": "No",
-      "number": "Number",
+      "number": "Brakas Number",
       "date": "Date",
       "desc": "Description",
       "meaning": "Meaning",
@@ -483,7 +483,8 @@
       "position": "Position",
       "fileName": "Document Name",
       "fileType": "Document Type",
-      "link": "Link"
+      "link": "Link",
+      "time": "Time"
     },
     "position": {
       "searchHere": "Search Here ...",
@@ -999,7 +1000,7 @@
       "add": "បញ្ចូលព័តមានបុគ្គលិក",
       "update": "កែប្រែព័តមានបុគ្គលិក",
       "teacher": "បុគ្គលិក",
-      "name": "ឈ្មោះ",
+      "name": "ឈ្មោះខ្មែរ",
       "latinName": "ឈ្មោះឡាតាំង",
       "gender": "ភេទ",
       "nationality": "សញ្ជាតិ",
@@ -1393,7 +1394,8 @@
       "position": "តួនាទី",
       "fileName": "ឈ្មោះឯកសារ",
       "fileType": "ប្រភេទឯកសារ",
-      "link": "តំណភ្ជាប់"
+      "link": "តំណភ្ជាប់",
+      "time": "ពេលវេលា"
     },
     "position": {
       "searchHere": "ស្វែងរក​នៅទីនេះ ...",

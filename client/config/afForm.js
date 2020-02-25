@@ -26,8 +26,8 @@ AccountsTemplates.configure({
     texts: {
         signInLink_pre: "មានគណនីហើយ?",
         signInLink_link: "ចូលប្រើប្រាស់",
-        signUpLink_pre: "មិនទាន់មានគណនី?",
-        signUpLink_link: "ចុះឈ្មោះឥឡូវនេះ",
+        signUpLink_pre: "មិនទាន់មានគណនី? មានបញ្ហាសូមទំនាក់ទំនង៖ 012 969 373",
+        signUpLink_link: "ចុះឈ្មោះឥឡូវនេះ​​",
         button: {
             signUp: "ចុះឈ្មោះឥឡូវ",
             signIn: "ចូលប្រើ"

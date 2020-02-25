@@ -72,6 +72,10 @@
                             :label="langConfig['place']">
                     </el-table-column>
                     <el-table-column
+                            prop="time"
+                            :label="langConfig['time']">
+                    </el-table-column>
+                    <el-table-column
                             prop="fileName"
                             :label="langConfig['fileName']">
                         <template slot-scope="scope">
@@ -172,6 +176,9 @@
                         </el-form-item>
                         <el-form-item :label="langConfig['place']" prop="place">
                             <el-input type="text" v-model="schTeacherActivityForm.place"></el-input>
+                        </el-form-item>
+                        <el-form-item :label="langConfig['time']" prop="time">
+                            <el-input type="text" v-model="schTeacherActivityForm.time"></el-input>
                         </el-form-item>
                         <el-form-item :label="langConfig['fileName']">
                             <el-table
@@ -357,6 +364,9 @@
                         </el-form-item>
                         <el-form-item :label="langConfig['place']" prop="place">
                             <el-input type="text" v-model="schTeacherActivityForm.place"></el-input>
+                        </el-form-item>
+                        <el-form-item :label="langConfig['time']" prop="time">
+                            <el-input type="text" v-model="schTeacherActivityForm.time"></el-input>
                         </el-form-item>
 
                         <el-form-item :label="langConfig['fileName']">
@@ -554,6 +564,8 @@
                     desc: "",
                     startDate: "",
                     endDate: "",
+                    time: "",
+                    place: "",
                     _id: "",
                     order: 0,
                     fileName: [{fileName: ""}],
@@ -622,9 +634,8 @@
                     this.positionList = result;
                 })
             },
-            fileTypeOpt() {
-                let selector = {};
-                Meteor.call('queryFileTypeOption', selector, (err, result) => {
+            fileTypeOpt(q) {
+                Meteor.call('queryFileTypeOption', q, (err, result) => {
                     this.fileTypeList = result;
                 })
             },
@@ -687,6 +698,7 @@
                             desc: vm.schTeacherActivityForm.desc,
                             topic: vm.schTeacherActivityForm.topic,
                             place: vm.schTeacherActivityForm.place,
+                            time: vm.schTeacherActivityForm.time,
                             fileName: vm.schTeacherActivityForm.fileName,
                             fileType: vm.schTeacherActivityForm.fileType,
                             order: vm.schTeacherActivityForm.order,
@@ -737,6 +749,7 @@
                             desc: vm.schTeacherActivityForm.desc,
                             topic: vm.schTeacherActivityForm.topic,
                             place: vm.schTeacherActivityForm.place,
+                            time: vm.schTeacherActivityForm.time,
                             fileName: vm.schTeacherActivityForm.fileName,
                             fileType: vm.schTeacherActivityForm.fileType,
 

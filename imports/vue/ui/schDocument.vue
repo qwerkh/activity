@@ -402,9 +402,8 @@
                     this.applyUserOption = result;
                 })
             },
-            documentTypeOpt() {
-                let selector = {};
-                Meteor.call('queryFileTypeOption', selector, (err, result) => {
+            documentTypeOpt(q) {
+                Meteor.call('queryFileTypeOption',q || "", (err, result) => {
                     this.documentTypeList = result;
                 })
             },

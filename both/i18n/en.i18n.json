@@ -128,7 +128,8 @@
       "fileType": "Document Type",
       "document": "Document",
       "menu": "Menu",
-      "report": "Report"
+      "report": "Report",
+      "teacherList":"Staff List"
     }
   },
   "acc": {
