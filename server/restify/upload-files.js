@@ -1,3 +1,4 @@
+/*
 import restify from 'restify';
 import os from 'os';
 const PORT = 4000;
@@ -11,13 +12,13 @@ server.use(restify.bodyParser({
     overrideParams: false,
     multipartHandler: function (part) {
         part.on('data', function (data) {
-            /* do something with the multipart data */
+            /!* do something with the multipart data *!/
 
         });
     },
     multipartFileHandler: function (part) {
         part.on('data', function (data) {
-            /* do something with the multipart file data */
+            /!* do something with the multipart file data *!/
             let workbook = XLXS.read(data, {WTF: true});
             let sheet_name_list = workbook.SheetNames;
             let count = 0;
@@ -48,4 +49,4 @@ server.post('/uploads', function rm(req, res, next) {
 
 server.listen(PORT, () => {
     console.log('Restify listen on port ', PORT);
-});
+});*/

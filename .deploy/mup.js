@@ -10,7 +10,7 @@ module.exports = {
         }
     },
 
-    app: {
+    meteor: {
         // TODO: change app name and path
         name: 'mlvt',
         path: '../.',
@@ -36,7 +36,8 @@ module.exports = {
         docker: {
             // change to 'abernix/meteord:base' if your app is using Meteor 1.4 - 1.5
              //image: 'abernix/meteord:node-8.4.0-base',
-	    image: 'zodern/meteor:root',
+	    image: 'abernix/meteord:node-8-base',
+	    //image: 'zodern/meteor:root',
             //image: 'abernix/meteord:base',
         },
 
