@@ -97,7 +97,7 @@
         <el-dialog
                 :title="langConfig['add']"
                 :visible.sync="dialogAddSchActivity"
-                width="30%">
+                width="50%">
             <!--<hr style="margin-top: 0px !important;border-top: 2px solid teal">-->
             <el-form :model="schActivityForm" :rules="rules" ref="schActivityFormAdd" label-width="120px"
                      class="schActivityForm">
@@ -125,7 +125,7 @@
         <el-dialog
                 :title="langConfig['update']"
                 :visible.sync="dialogUpdateSchActivity"
-                width="30%">
+                width="50%">
             <!--<hr style="margin-top: 0px !important;border-top: 2px solid teal">-->
             <el-form :model="schActivityForm" :rules="rules" ref="schActivityFormUpdate" label-width="120px"
                      class="schActivityForm">

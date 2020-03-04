@@ -125,7 +125,7 @@ Meteor.methods({
                             <td style="text-align: left !important;width: 15%">${obj.data.personal && obj.data.personal.provinceCurrent || ""}</td>
                             <td style="text-align: left !important;width: 15%">${obj.positionDoc && obj.positionDoc.name || ""}</td>
                             <td style="text-align: left !important;width: 15%">${obj.data.organizationDoc && obj.data.organizationDoc.name || ""}</td>
-                            <td style="text-align: left !important;width: 15%">${obj.data.phoneNumber || ""}</td>
+                            <td style="text-align: left !important;width: 15%">${obj.data.personal.phoneNumber || ""}</td>
                             </tr>
                             `;
 

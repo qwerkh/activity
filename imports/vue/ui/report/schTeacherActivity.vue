@@ -15,19 +15,7 @@
                             </div>
                             <el-form :label-position="labelPosition">
                                 <el-row type="flex" class="row-bg" justify="center">
-                                    <el-col>
-                                        <el-form-item :label="langConfig['position']">
-                                            <el-select filterable v-model="params.positionId"
-                                                       :placeholder="langConfig['all']" clearable
-                                                       style="width: 95%">
-                                                <el-option
-                                                        v-for="item in positionOptions"
-                                                        :label="item.label"
-                                                        :value="item.value" :key="item._id">
-                                                </el-option>
-                                            </el-select>
-                                        </el-form-item>
-                                    </el-col>
+
                                     <el-col>
                                         <el-form-item :label="langConfig['teacher']">
                                             <el-select filterable v-model="params.teacherId" clearable
@@ -71,6 +59,19 @@
 
                                     </el-col>
                                     <el-col>
+                                        <el-form-item :label="langConfig['position']">
+                                            <el-select filterable v-model="params.positionId"
+                                                       :placeholder="langConfig['all']" clearable
+                                                       style="width: 95%">
+                                                <el-option
+                                                        v-for="item in positionOptions"
+                                                        :label="item.label"
+                                                        :value="item.value" :key="item._id">
+                                                </el-option>
+                                            </el-select>
+                                        </el-form-item>
+                                    </el-col>
+                                    <el-col>
                                         <el-form-item :label="langConfig['dateRange']">
                                             <el-date-picker
                                                     align="right" style="width: 95%"
@@ -107,25 +108,12 @@
 
                                     </el-col>
                                     <el-col>
-                                        <el-form-item :label="langConfig['degree']">
-                                            <el-select filterable v-model="params.degree" clearable
-                                                       :placeholder="langConfig['all']"
-                                                       style="width: 95%">
-                                                <el-option
-                                                        v-for="item in gradeList"
-                                                        :label="item.label"
-                                                        :value="item.value" :key="item._id">
-                                                </el-option>
-                                            </el-select>
-                                        </el-form-item>
-
-                                    </el-col>
-                                    <el-col>
                                         <el-form-item :label="langConfig['place']">
                                             <el-input v-model="params.place"></el-input>
                                         </el-form-item>
 
                                     </el-col>
+                                    <el-col></el-col>
                                 </el-row>
                             </el-form>
 
@@ -211,7 +199,7 @@
                     <div style="width: 50%;float: left !important;text-align: center !important;">
                         បានឃើញ និង ពិនិត្យត្រឹមត្រូវ<br><br>
                         ថ្ងៃ ........................    ខែ  ........................ឆ្នាំ .................................<br><br>
-                        .......................... ថ្ងៃទី ............    ខែ  ....................  ឆ្នាំ ...................<br><span
+                        .......................... ថ្ងៃទី ............    ខែ  ....................  ឆ្នាំ ...................<br><br><span
                             style="font-family: 'Khmer OS Muol'">ហត្ថលេខា</span>
                     </div>
 

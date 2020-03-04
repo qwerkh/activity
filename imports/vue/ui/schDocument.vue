@@ -61,6 +61,11 @@
                             prop="documentTypeDoc.name"
                             :label="langConfig['documentType']">
                     </el-table-column>
+
+                    <el-table-column
+                            prop="desc"
+                            :label="langConfig['desc']">
+                    </el-table-column>
                     <el-table-column
                             prop="link"
                             :label="langConfig['link']">
@@ -68,10 +73,6 @@
                             <a v-for="(d,index) in scope.row.link" :href="d.fileName" target="_blank">
                                 {{d.fileName ? " File"+(index+1) : ""}}</a>
                         </template>
-                    </el-table-column>
-                    <el-table-column
-                            prop="desc"
-                            :label="langConfig['desc']">
                     </el-table-column>
                     <el-table-column
                             :label="langConfig['action']"
@@ -114,7 +115,7 @@
         <el-dialog
                 :title="langConfig['add']"
                 :visible.sync="dialogAddSchDocument"
-                width="30%">
+                width="80%">
             <!--<hr style="margin-top: 0px !important;border-top: 2px solid teal">-->
             <el-form :model="schDocumentForm" :rules="rules" ref="schDocumentFormAdd" label-width="150px"
                      class="schDocumentForm">
@@ -209,7 +210,7 @@
         <el-dialog
                 :title="langConfig['update']"
                 :visible.sync="dialogUpdateSchDocument"
-                width="30%">
+                width="80%">
             <!--<hr style="margin-top: 0px !important;border-top: 2px solid teal">-->
             <el-form :model="schDocumentForm" :rules="rules" ref="schDocumentFormUpdate" label-width="150px"
                      class="schDocumentForm">

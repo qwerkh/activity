@@ -77,7 +77,7 @@
                     </el-table-column>
                     <el-table-column
                             prop="fileName"
-                            :label="langConfig['fileName']">
+                            :label="langConfig['link']">
                         <template slot-scope="scope">
                             <a v-for="(d,index) in scope.row.fileName" :href="d.fileName" target="_blank">
                                 {{d.fileName ? " File"+(index+1) : ""}}</a>
@@ -180,7 +180,7 @@
                         <el-form-item :label="langConfig['time']" prop="time">
                             <el-input type="text" v-model="schTeacherActivityForm.time"></el-input>
                         </el-form-item>
-                        <el-form-item :label="langConfig['fileName']">
+                        <el-form-item :label="langConfig['link']">
                             <el-table
                                     :data="schTeacherActivityForm.fileName"
                                     stripe
@@ -369,7 +369,7 @@
                             <el-input type="text" v-model="schTeacherActivityForm.time"></el-input>
                         </el-form-item>
 
-                        <el-form-item :label="langConfig['fileName']">
+                        <el-form-item :label="langConfig['link']">
                             <el-table
                                     :data="schTeacherActivityForm.fileName"
                                     stripe

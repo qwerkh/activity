@@ -103,7 +103,7 @@
         <el-dialog
                 :title="langConfig['add']"
                 :visible.sync="dialogAddSchPosition"
-                width="30%">
+                width="50%">
             <!--<hr style="margin-top: 0px !important;border-top: 2px solid teal">-->
             <el-form :model="schPositionForm" :rules="rules" ref="schPositionFormAdd" label-width="120px"
                      class="schPositionForm">
@@ -138,7 +138,7 @@
         <el-dialog
                 :title="langConfig['update']"
                 :visible.sync="dialogUpdateSchPosition"
-                width="30%">
+                width="50%">
             <!--<hr style="margin-top: 0px !important;border-top: 2px solid teal">-->
             <el-form :model="schPositionForm" :rules="rules" ref="schPositionFormUpdate" label-width="120px"
                      class="schPositionForm">

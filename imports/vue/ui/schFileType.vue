@@ -98,7 +98,7 @@
         <el-dialog
                 :title="langConfig['add']"
                 :visible.sync="dialogAddSchFileType"
-                width="30%">
+                width="50%">
             <!--<hr style="margin-top: 0px !important;border-top: 2px solid teal">-->
             <el-form :model="schFileTypeForm" :rules="rules" ref="schFileTypeFormAdd" label-width="140px"
                      class="schFileTypeForm">
@@ -129,7 +129,7 @@
         <el-dialog
                 :title="langConfig['update']"
                 :visible.sync="dialogUpdateSchFileType"
-                width="30%">
+                width="50%">
             <!--<hr style="margin-top: 0px !important;border-top: 2px solid teal">-->
             <el-form :model="schFileTypeForm" :rules="rules" ref="schFileTypeFormUpdate" label-width="140px"
                      class="schFileTypeForm">
