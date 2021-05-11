@@ -28,7 +28,7 @@
     "jsdom": "^11.12.0",
     "jszip": "^3.2.2",
     "location": "0.0.1",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "material-design-icons": "^3.0.1",
     "materialize-css-meteor": "^0.97.9",
     "mathjs": "^3.20.2",
