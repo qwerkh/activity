@@ -61,7 +61,7 @@
     "vue-infinite-scroll": "^2.0.0",
     "vue-meteor-tracker": "^1.2.3",
     "vuedraggable": "^2.23.0",
-    "xlsx": "^0.10.9",
+    "xlsx": "^0.17.0",
     "xlsx-style": "^0.8.13",
     "xmlhttprequest": "^1.8.0"
   },
