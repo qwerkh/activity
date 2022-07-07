@@ -33,7 +33,7 @@
     "materialize-css-meteor": "^0.97.9",
     "mathjs": "^3.20.2",
     "meteor-node-stubs": "^0.4.1",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "mongo-views": "^0.1.4",
     "mongodb": "^3.2.7",
     "navigator": "^1.0.1",
